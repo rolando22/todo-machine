@@ -1,8 +1,8 @@
-export function TodoItem () {
+export function TodoItem ({ text, completed }) {
     return (
         <li>
             <span>V</span>
-            <p>Hacet el curso de React</p>
+            <p>{text}</p>
             <span>X</span>
         </li>
     );

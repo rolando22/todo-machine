@@ -1,5 +1,5 @@
-export function TodoCounter() {
+export function TodoCounter({ completed, total }) {
     return (
-        <h1>Has completado 3 de 5 TODOs</h1>
+        <h1>Has completado {completed} de {total} TODOs</h1>
     );
 }
