@@ -6,6 +6,7 @@ export function TodoSearch() {
             className="TodoSearch"
             type="text" 
             placeholder="Buscar TODO..." 
+            onChange={(event) => console.log(event.target.value)}
         />
     );
 }
