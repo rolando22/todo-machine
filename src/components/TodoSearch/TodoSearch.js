@@ -1,12 +1,13 @@
 import './TodoSearch.css';
 
-export function TodoSearch() {
+export function TodoSearch({ searchValue, setSearchValue }) {
     return (
         <input
             className="TodoSearch"
             type="text" 
             placeholder="Buscar TODO..." 
-            onChange={(event) => console.log(event.target.value)}
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
         />
     );
 }
