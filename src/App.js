@@ -18,7 +18,16 @@ const defaultTodos = [
 ];
 
 function App() {
-    const [todos, setTodos] = useState(defaultTodos);
+    let localStorageTodos;
+
+    if (!localStorage.getItem('TODOs_V1')) {
+        localStorage.setItem('TODOs_V1', JSON.stringify(defaultTodos));
+        localStorageTodos = [];
+    } else {
+        localStorageTodos = JSON.parse(localStorage.getItem('TODOs_V1'));
+    }
+
+    const [todos, setTodos] = useState(localStorageTodos);
     const [searchValue, setSearchValue] = useState('');
 
     const completedTodos = todos.filter(todo => todo.completed).length;
@@ -28,17 +37,22 @@ function App() {
         return todoText.includes(searchText);
     });
 
+    const saveTodos = (newTodos) => {
+        localStorage.setItem('TODOs_V1', JSON.stringify(newTodos));
+        setTodos(newTodos);
+    };
+
     const onComplete = (text) => () => {
         const newTodos = todos.map(todo => {
                 if (todo.text === text) todo.completed = !todo.completed;
                 return todo;
             });
-        setTodos(newTodos);
+        saveTodos(newTodos);
     };
 
     const onDelete = (text) => () => {
         const newTodos = todos.filter(todo => todo.text !== text);
-        setTodos(newTodos);
+        saveTodos(newTodos);
     };
 
     return (
