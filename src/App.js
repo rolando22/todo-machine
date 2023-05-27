@@ -6,6 +6,7 @@ import {
     TodoList, 
     TodoSearch 
 } from './components';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 import './App.css';
 
@@ -18,16 +19,7 @@ const defaultTodos = [
 ];
 
 function App() {
-    let localStorageTodos;
-
-    if (!localStorage.getItem('TODOs_V1')) {
-        localStorage.setItem('TODOs_V1', JSON.stringify(defaultTodos));
-        localStorageTodos = [];
-    } else {
-        localStorageTodos = JSON.parse(localStorage.getItem('TODOs_V1'));
-    }
-
-    const [todos, setTodos] = useState(localStorageTodos);
+    const [todos, saveTodos] = useLocalStorage('TODOs_V1', defaultTodos);
     const [searchValue, setSearchValue] = useState('');
 
     const completedTodos = todos.filter(todo => todo.completed).length;
@@ -36,11 +28,6 @@ function App() {
         const searchText = searchValue.toLocaleLowerCase();
         return todoText.includes(searchText);
     });
-
-    const saveTodos = (newTodos) => {
-        localStorage.setItem('TODOs_V1', JSON.stringify(newTodos));
-        setTodos(newTodos);
-    };
 
     const onComplete = (text) => () => {
         const newTodos = todos.map(todo => {
