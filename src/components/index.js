@@ -1,8 +1,8 @@
-export { CompleteIcon } from './CompleteIcon/CompleteIcon';
-export { CreateTodoButton } from './CreateTodoButton/CreateTodoButton';
-export { DeleteIcon } from './DeleteIcon/DeleteIcon';
-export { TodoCounter } from './TodoCounter/TodoCounter';
-export { TodoIcon } from './TodoIcon/TodoIcon';
-export { TodoItem } from './TodoItem/TodoItem';
-export { TodoList } from './TodoList/TodoList';
-export { TodoSearch } from './TodoSearch/TodoSearch';
+export { CompleteIcon } from './CompleteIcon';
+export { CreateTodoButton } from './CreateTodoButton';
+export { DeleteIcon } from './DeleteIcon';
+export { TodoCounter } from './TodoCounter';
+export { TodoIcon } from './TodoIcon';
+export { TodoItem } from './TodoItem';
+export { TodoList } from './TodoList';
+export { TodoSearch } from './TodoSearch';
