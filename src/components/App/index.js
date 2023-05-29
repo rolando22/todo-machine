@@ -2,16 +2,21 @@ import { useState } from 'react';
 import { AppUI } from './AppUI';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-const defaultTodos = [
-    { text: 'Cortar Cebollas', completed: true },
-    { text: 'Tomar el Curso de React', completed: false },
-    { text: 'Llorar con la Llorona', completed: false },
-    { text: 'LALALALALLA', completed: true },
-    { text: 'Aplicar estados derivados', completed: true },
-];
+// const defaultTodos = [
+//     { text: 'Cortar Cebollas', completed: true },
+//     { text: 'Tomar el Curso de React', completed: false },
+//     { text: 'Llorar con la Llorona', completed: false },
+//     { text: 'LALALALALLA', completed: true },
+//     { text: 'Aplicar estados derivados', completed: true },
+// ];
 
 function App() {
-    const [todos, saveTodos] = useLocalStorage('TODOs_V1', defaultTodos);
+    const {
+        item: todos, 
+        saveItem: saveTodos, 
+        loading, 
+        error
+    } = useLocalStorage('TODOs_V1', []);
     const [searchValue, setSearchValue] = useState('');
 
     const completedTodos = todos.filter(todo => todo.completed).length;
@@ -43,6 +48,8 @@ function App() {
             searchedTodos={searchedTodos}
             onComplete={onComplete}
             onDelete={onDelete}
+            loading={loading}
+            error={error}
         />
     );
 }

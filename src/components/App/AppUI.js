@@ -14,6 +14,8 @@ export function AppUI({
     searchedTodos,
     onComplete,
     onDelete,
+    loading, 
+    error,
  }) {
     return (
         <>
@@ -27,6 +29,9 @@ export function AppUI({
             />
 
             <TodoList>
+                {loading && <p>Cargando...</p>}
+                {error && <p>Hubo un error!!!</p>}
+                {!loading && searchedTodos === 0 && <p>Crea tu primer TODO!</p>}
                 {searchedTodos.map(todo => 
                     <TodoItem 
                         key={todo.text} 
