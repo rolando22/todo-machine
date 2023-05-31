@@ -2,7 +2,9 @@ import { useContext } from 'react';
 import { 
     CreateTodoButton, 
     EmptyTodos, 
+    Modal, 
     TodoCounter, 
+    TodoForm, 
     TodoItem, 
     TodoList, 
     TodoSearch, 
@@ -17,6 +19,7 @@ export function AppUI() {
         searchedTodos,
         loading,
         error,
+        toggleModal,
     } = useContext(TodoContext);
 
     return (
@@ -42,6 +45,12 @@ export function AppUI() {
             </TodoList>
 
             <CreateTodoButton/>
+            
+            {toggleModal && 
+                <Modal>
+                    <TodoForm />
+                </Modal>
+            }
         </>
     );
 }

@@ -1,8 +1,10 @@
 export { CompleteIcon } from './CompleteIcon';
 export { CreateTodoButton } from './CreateTodoButton';
 export { DeleteIcon } from './DeleteIcon';
-export { EmptyTodos } from './EmptyTodos'
+export { EmptyTodos } from './EmptyTodos';
+export { Modal } from './Modal';
 export { TodoCounter } from './TodoCounter';
+export { TodoForm } from './TodoForm';
 export { TodoIcon } from './TodoIcon';
 export { TodoItem } from './TodoItem';
 export { TodoList } from './TodoList';

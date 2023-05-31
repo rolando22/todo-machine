@@ -19,6 +19,7 @@ export function TodoProvider({ children }) {
         error
     } = useLocalStorage('TODOs_V1', []);
     const [searchValue, setSearchValue] = useState('');
+    const [toggleModal, setToggleModal] = useState(false);
 
     const completedTodos = todos.filter(todo => todo.completed).length;
     const searchedTodos = todos.filter(todo => {
@@ -26,6 +27,11 @@ export function TodoProvider({ children }) {
         const searchText = searchValue.toLocaleLowerCase();
         return todoText.includes(searchText);
     });
+
+    const addTodo = (text) => {
+        const newTodos = [...todos, { text, completed: false }];
+        saveTodos(newTodos);
+    };
 
     const onComplete = (text) => () => {
         const newTodos = todos.map(todo => {
@@ -40,6 +46,8 @@ export function TodoProvider({ children }) {
         saveTodos(newTodos);
     };
 
+    const handlerToggleModal = () => setToggleModal(state => !state);
+
     return (
         <TodoContext.Provider value={{
             completedTodos,
@@ -47,10 +55,13 @@ export function TodoProvider({ children }) {
             searchValue,
             setSearchValue,
             searchedTodos,
+            addTodo,
             onComplete,
             onDelete,
             loading,
             error,
+            toggleModal,
+            handlerToggleModal,
         }}>
             {children}
         </TodoContext.Provider>
