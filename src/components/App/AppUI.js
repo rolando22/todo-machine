@@ -13,6 +13,8 @@ import {
 } from '../';
 import { TodoContext } from '../../contexts/TodoContext';
 
+import './App.css';
+
 export function AppUI() {
     const {
         todos,
@@ -23,7 +25,7 @@ export function AppUI() {
     } = useContext(TodoContext);
 
     return (
-        <>
+        <main className="App-container">
             <TodoCounter />
             <TodoSearch />
 
@@ -51,6 +53,6 @@ export function AppUI() {
                     <TodoForm />
                 </Modal>
             }
-        </>
+        </main>
     );
 }

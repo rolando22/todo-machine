@@ -1,5 +1,6 @@
 .TodoItem {
-    background-color: #fafafa;
+    border-radius: 10px;
+    background-color: #293143;
     position: relative;
     display: flex;
     justify-content: center;
@@ -18,4 +19,5 @@
 
 .TodoItem-p--complete {
     text-decoration: line-through;
+    text-decoration-color: #171b26;
 }

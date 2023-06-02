@@ -4,7 +4,7 @@ export function DeleteIcon({ onDelete }) {
     return (
         <TodoIcon 
             type='delete'
-            color='grey'
+            color='#5e6b78'
             onClick={onDelete}
         />
     );

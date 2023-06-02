@@ -34,9 +34,9 @@
 }
 
 .Icon-container-check:hover .Icon-svg {
-    fill: green;
+    fill: #47c2be;
 }
 
 .Icon-container-delete:hover .Icon-svg {
-    fill: red;
+    fill: #e2685c;
 }
