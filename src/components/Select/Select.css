@@ -1,0 +1,23 @@
+.Select-container {
+    height: 100%;
+    width: 100%;
+    padding: 0 14px;
+    background: #1d2330;
+    border-radius: 10px;
+    border: 2px solid #1d2330;
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #fff;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.Select-container::placeholder {
+    color: #4f6b7f;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}

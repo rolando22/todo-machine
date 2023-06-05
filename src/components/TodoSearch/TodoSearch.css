@@ -1,9 +1,14 @@
+.TodoSearch-container {
+    height: 70px;
+    display: flex;
+}
+
 .TodoSearch {
     background: #1d2330;
     border-radius: 10px;
     border: 2px solid #1d2330;
-    margin: 0 24px;
-    height: 64px;
+    margin: 0 12px;
+    height: 100%;
     width: calc(100% - 62px);
     font-size: 24px;
     text-align: center;
@@ -21,4 +26,33 @@
 
 .TodoSearch:focus {
     outline-color: #47c2be;
+}
+
+.TodoSearch-categories {
+    height: 75px;
+    margin: 0 12px;
+    width: calc(100% - 550px);
+}
+
+@media (max-width: 770px) {
+    .TodoSearch-categories {
+        width: calc(100% - 360px);
+    }
+}
+
+@media (max-width: 600px) {
+    .TodoSearch-container {
+        height: 170px;
+        display: grid;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .TodoSearch {
+        width: calc(100% - 30px);
+    }
+
+    .TodoSearch-categories {
+        width: calc(100% - 24px);
+    }
 }

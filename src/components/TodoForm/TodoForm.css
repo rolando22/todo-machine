@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
 .TodoForm-label {
@@ -15,7 +16,11 @@
     font-weight: bold;
     font-size: 20px;
     color: #fff;
-    margin-bottom: 26px;
+}
+
+.TodoForm-categories {
+    height: 65px;
+    width: 100%;
 }
 
 .TodoForm-text {
@@ -51,11 +56,11 @@
 }
 
 .TodoForm-buttonContainer {
-    margin-top: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 15px;
 }
 
 .TodoForm-button {

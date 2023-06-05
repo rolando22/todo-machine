@@ -3,6 +3,7 @@ export { CreateTodoButton } from './CreateTodoButton';
 export { DeleteIcon } from './DeleteIcon';
 export { EmptyTodos } from './EmptyTodos';
 export { Modal } from './Modal';
+export { Select } from './Select';
 export { TodoCounter } from './TodoCounter';
 export { TodoForm } from './TodoForm';
 export { TodoIcon } from './TodoIcon';

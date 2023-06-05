@@ -9,7 +9,7 @@ export function useLocalStorage(itemName, initialValue) {
         setTimeout(() => {
             try {
                 if (!localStorage.getItem(itemName)) 
-                    localStorage.setItem(itemName, JSON.stringify(initialValue));
+                    localStorage.setItem(itemName, JSON.stringify(item));
                 const localStorageTodos = JSON.parse(localStorage.getItem(itemName));
                 setItem(localStorageTodos);
                 setLoading(false);
@@ -19,7 +19,7 @@ export function useLocalStorage(itemName, initialValue) {
                 setError(true);
             }
         }, 2000);
-    }, [itemName, initialValue]);
+    }, []);
 
 
     const saveItem = (newItem) => {

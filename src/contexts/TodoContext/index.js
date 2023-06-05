@@ -1,13 +1,12 @@
 import { createContext, useState } from "react";
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-// const defaultTodos = [
-//     { text: 'Cortar Cebollas', completed: true },
-//     { text: 'Tomar el Curso de React', completed: false },
-//     { text: 'Llorar con la Llorona', completed: false },
-//     { text: 'LALALALALLA', completed: true },
-//     { text: 'Aplicar estados derivados', completed: true },
-// ];
+const defaultTodosCategories = [
+    { name: 'Actividad libre' },
+    { name: 'Universidad' },
+    { name: 'Trabajo' },
+    { name: 'Trámite' },
+];
 
 export const TodoContext = createContext();
 
@@ -16,20 +15,21 @@ export function TodoProvider({ children }) {
         item: todos, 
         saveItem: saveTodos, 
         loading, 
-        error
+        error,
     } = useLocalStorage('TODOs_V1', []);
-    const [searchValue, setSearchValue] = useState('');
+    const [categories, setCategories] = useState(defaultTodosCategories.sort());
+    const [searchValue, setSearchValue] = useState({ text: '', category: '' });
     const [toggleModal, setToggleModal] = useState(false);
 
     const completedTodos = todos.filter(todo => todo.completed).length;
     const searchedTodos = todos.filter(todo => {
         const todoText = todo.text.toLocaleLowerCase();
-        const searchText = searchValue.toLocaleLowerCase();
-        return todoText.includes(searchText);
+        const searchText = searchValue.text.toLocaleLowerCase();
+        return todoText.includes(searchText) && todo.category.includes(searchValue.category);
     });
 
-    const addTodo = (text) => {
-        const newTodos = [...todos, { text, completed: false }];
+    const addTodo = ({ text, category }) => {
+        const newTodos = [...todos, { text, category, completed: false }];
         saveTodos(newTodos);
     };
 
@@ -62,6 +62,8 @@ export function TodoProvider({ children }) {
             error,
             toggleModal,
             handlerToggleModal,
+            categories,
+            setCategories,
         }}>
             {children}
         </TodoContext.Provider>
