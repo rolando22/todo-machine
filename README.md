@@ -1,8 +1,10 @@
-# Repositorio proyecto TODO Machine
+# Repositorio proyecto TODO Machine con React
 
 El proyecto fue creado mientras realizaba el curso de Plazti [Curso de Introducción a React.js](https://platzi.com/reactjs).
 
-Este repositorio contiene el código de un aplicación para registrar tareas, marcarlas como completadas y/o eliminarlas, también tiene un buscador de tareas y un contador de tareas completadas/total de tareas.
+Este repositorio contiene el código de un aplicación para registrar tareas, categorizarlas, marcarlas como completadas y/o eliminarlas, un buscador de tareas, filtro por categorías y un contador de tareas completadas/total de tareas.
+
+Desarrollada con React para manipulación del DOM y reactividad de la aplicación, uso del hook React Context para mantener el estado global de la aplicación y LocalStorage para la persistencia de los datos.
 
 Puedes ver el demo aquí: (https://rolando22.github.io/todo-machine/).
 
